@@ -1,0 +1,45 @@
+data:
+  url: "https://archive.ics.uci.edu/ml/machine-learning-databases/statlog/german/german.data"
+  columns: 
+    - checking_status
+    - duration
+    - credit_history
+    - purpose
+    - credit_amount
+    - savings_status
+    - employment
+    - installment_commitment
+    - personal_status
+    - other_parties
+    - residence_since
+    - property_magnitude
+    - age
+    - other_payment_plans
+    - housing
+    - existing_credits
+    - job
+    - num_dependents
+    - own_telephone
+    - foreign_worker
+    - class
+
+mlflow:
+  tracking_uri: "http://mlflow:5000"
+  experiment_name: "german-credit-risk"
+  run_name: "baseline-v1"
+
+model:
+  name: "RandomForestClassifier"
+  params:
+    n_estimators: 100
+    max_depth: 10
+    random_state: 42
+  test_size: 0.2
+  random_state: 42
+
+minio:
+  endpoint: "minio:9000"
+  access_key: "minioadmin"
+  secret_key: "minioadmin"
+  bucket: "mlflow-artifacts"
+
